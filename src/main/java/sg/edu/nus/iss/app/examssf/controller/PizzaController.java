@@ -31,12 +31,10 @@ public class PizzaController {
         if(result.hasErrors()){
             return "pizza";
         }
-        // ctcRedisSvc.save(contact);
-        // model.addAttribute( "contact", contact);
-        // response.setStatus(HttpServletResponse.SC_CREATED);
         System.out.printf("====================%s,%s,%s==============\n",pizza.getPizzaType(),pizza.getPizzaSize(),pizza.getPizzaQty());
         Order d = new Order();
         model.addAttribute("order",d);
+        //when pass to order.html page pizza type, size and qty can be pass correctly
         return "order";
     }
 
@@ -48,15 +46,10 @@ public class PizzaController {
             
             return "order";
         }
-        //ctcRedisSvc.save(contact);
-        // model.addAttribute( "contact", contact);
-        // response.setStatus(HttpServletResponse.SC_CREATED);
-        // float price = 0f;
-        // System.out.printf("Deliver===%s,%s,%s====\n",order.getPizzaType(),order.getPizzaSize(),order.getPizzaQty());
-        //Pizza p = new Pizza();
-        //price = p.pricePizza();
-        //System.out.println(price);
-        
+        float price;
+        // I am sorry I have to hard code the pizza type, size and qty because it cant retain the value
+        // i do hard code on order.
+        price = order.pricePizza();
 
         return "showOrder";
     }

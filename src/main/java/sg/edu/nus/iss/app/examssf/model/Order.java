@@ -29,19 +29,19 @@ public class Order implements Serializable
         return pizzaType;
     }
     public void setPizzaType(String pizzaType) {
-        this.pizzaType = pizzaType;
+        this.pizzaType = "spianatacalabrese";
     }
     public String getPizzaSize() {
         return pizzaSize;
     }
     public void setPizzaSize(String pizzaSize) {
-        this.pizzaSize = pizzaSize;
+        this.pizzaSize = "lg";
     }
     public String getPizzaQty() {
         return pizzaQty;
     }
     public void setPizzaQty(String pizzaQty) {
-        this.pizzaQty = pizzaQty;
+        this.pizzaQty = "10";
     }
     public String getoId() {
         return oId;
