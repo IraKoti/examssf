@@ -139,8 +139,10 @@ public class Order implements Serializable
         totalPizza = (pizzaCost * typeCost * Float.valueOf(pizzaQty)) + rushCost;
         System.out.println("==========DELIVERY DETAILS============");
         System.out.printf("Order Number: %s\n",this.getoId());
-        //System.out.println("==========DELIVERY DETAILS============");
-        System.out.printf("Order Number: %s\n",this.getoId());
+        System.out.printf("Your order will be delivered to: %s\n",this.getoAddress());
+        System.out.printf("Pizza cost: %s\n",pizzaCost);
+        System.out.printf("Rush: %s\n",typeCost);
+        System.out.printf("Total Cost: %s\n",totalPizza);
         return totalPizza;
     }
 }

@@ -41,34 +41,23 @@ public class PizzaController {
     }
 
 
-    public String saveContact(@Valid Contact contact, BindingResult result, 
-                Model model, HttpServletResponse response){
-        if(result.hasErrors()){
-            return "contact";
-        }
-        ctcRedisSvc.save(contact);
-        model.addAttribute( "contact", contact);
-        response.setStatus(HttpServletResponse.SC_CREATED);
-        return "showContact";
-    }
-
     @PostMapping("/pizza/order")
     public String saveOrder(@Valid Order order, BindingResult result,
                 Model model, HttpServletResponse response){
         if(result.hasErrors()){
-            System.out.printf("failure=====%s,%s,%s==============\n",order.getPizzaType(),order.getPizzaSize(),order.getPizzaQty());
+            
             return "order";
         }
-        ctcRedisSvc.save(contact);
+        //ctcRedisSvc.save(contact);
         // model.addAttribute( "contact", contact);
         // response.setStatus(HttpServletResponse.SC_CREATED);
-        float price = 0f;
-        System.out.printf("Deliver===%s,%s,%s====\n",order.getPizzaType(),order.getPizzaSize(),order.getPizzaQty());
+        // float price = 0f;
+        // System.out.printf("Deliver===%s,%s,%s====\n",order.getPizzaType(),order.getPizzaSize(),order.getPizzaQty());
         //Pizza p = new Pizza();
         //price = p.pricePizza();
         //System.out.println(price);
-        Order d = new Order();
-        model.addAttribute("order",d);
+        
+
         return "showOrder";
     }
     
