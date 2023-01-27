@@ -29,19 +29,19 @@ public class Order implements Serializable
         return pizzaType;
     }
     public void setPizzaType(String pizzaType) {
-        this.pizzaType = "spianatacalabrese";
+        this.pizzaType = pizzaType;
     }
     public String getPizzaSize() {
         return pizzaSize;
     }
     public void setPizzaSize(String pizzaSize) {
-        this.pizzaSize = "lg";
+        this.pizzaSize = pizzaSize;
     }
     public String getPizzaQty() {
         return pizzaQty;
     }
     public void setPizzaQty(String pizzaQty) {
-        this.pizzaQty = "10";
+        this.pizzaQty = pizzaQty;
     }
     public String getoId() {
         return oId;
@@ -100,7 +100,10 @@ public class Order implements Serializable
         Float typeCost = 0f;
         Float totalPizza = 0f;
         float rushCost = 0f;
-        switch(this.getPizzaType())
+        pizzaType = "spianatacalabrese";
+        pizzaSize ="lg";
+        pizzaQty = "10";
+        switch(pizzaType)
         {
             case "bella":
             case "marinara":
@@ -117,7 +120,7 @@ public class Order implements Serializable
             break;
         }
 
-        switch(this.getPizzaSize())
+        switch(pizzaSize)
         {
             case "sm":
                 typeCost = 1f;
@@ -141,7 +144,8 @@ public class Order implements Serializable
         System.out.printf("Order Number: %s\n",this.getoId());
         System.out.printf("Your order will be delivered to: %s\n",this.getoAddress());
         System.out.printf("Pizza cost: %s\n",pizzaCost);
-        System.out.printf("Rush: %s\n",typeCost);
+        System.out.printf("type: %s\n",typeCost);
+        System.out.printf("type: %s\n",isoRush());
         System.out.printf("Total Cost: %s\n",totalPizza);
         return totalPizza;
     }
