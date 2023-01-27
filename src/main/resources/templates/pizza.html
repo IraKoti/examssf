@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Panucci's Pizza</title>
+		<link rel="stylesheet" href="/styles.css">
+		<style>
+			.error {
+			  color: red;
+			}
+		  </style>
+	</head>
+	<body>
+
+		<div class="title">
+			<div><img src="/images/logo.jpg" class="thumbnail"></div>
+			<h2>Panucci's Pizza</h2>
+		</div>
+
+		<form  data-th-action="@{/pizza}" data-th-object="${pizza}"  method="post">
+			<div>
+				<h2>Select a pizza</h2>
+				<table>
+					<tr>
+						<td>
+							<div>
+								<img src="/images/Bella.png" class="pizza">
+							</div>
+							<div>
+								<input type="radio" data-th-field="*{pizzaType}" data-th-value="bella"> Bella
+							</div>
+						</td>
+						<td>
+							<div>
+								<img src="/images/Margherita.png" class="pizza">
+							</div>
+							<div>
+								<input type="radio" data-th-field="*{pizzaType}" data-th-value="margherita"> Margherita
+							</div>
+						</td>
+						<td>
+							<div>
+								<img src="/images/Marinara.png" class="pizza">
+							</div>
+							<div>
+								<input type="radio" data-th-field="*{pizzaType}" data-th-value="marinara"> Marinara
+							</div>
+						</td>
+						<td>
+							<div>
+								<img src="/images/SpianataCalabrese.png" class="pizza">
+							</div>
+							<div>
+								<input type="radio" data-th-field="*{pizzaType}" data-th-value="spianatacalabrese"> Spianata Calabrese
+							</div>
+						</td>
+						<td>
+							<div>
+								<img src="/images/TrioFormaggio.png" class="pizza">
+							</div>
+							<div>
+								<input type="radio" data-th-field="*{pizzaType}" data-th-value="trioformaggio"> Trio Formaggio
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+							class="error"
+							data-th-if="${#fields.hasErrors('pizzaType')}"
+							data-th-errors="*{pizzaType}"
+							></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Size:</td>
+						<td>
+							<select  data-th-field="*{pizzaSize}">
+								<option data-th-value="sm">Small</option>
+								<option data-th-value="md">Medium</option>
+								<option data-th-value="lg">Large</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+							class="error"
+							data-th-if="${#fields.hasErrors('pizzaSize')}"
+							data-th-errors="*{pizzaSize}"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Quantity:</td>
+						<td>
+							<input type="number" min="1" max="10" data-th-field="*{pizzaQty}">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+							class="error"
+							data-th-if="${#fields.hasErrors('pizzaQty')}"
+							data-th-errors="*{pizzaQty}"></span>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<button type="submit">Next</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</form>
+		
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Panucci's Pizza</title>
+		<link rel="stylesheet" href="/styles.css">
+		<style>
+			.error {
+			  color: red;
+			}
+		  </style>
+	</head>
+	<body>
+
+		<div class="title">
+			<div><img src="/images/logo.jpg" class="thumbnail"></div>
+			<h2>Panucci's Pizza</h2>
+		</div>
+
+		<form  data-th-action="@{/pizza/order}" data-th-object="${order}"  method="post">
+			<div>
+				<h2>Order Delivery Details</h2>
+				<table>
+					<tr>
+						<td>Name: </td>
+						<td><input type="text" data-th-field="*{oName}"> </td>
+						<td>
+							<span
+							class="error"
+							data-th-if="${#fields.hasErrors('oName')}"
+							data-th-errors="*{oName}"
+							></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Address: </td>
+						<td><input type="text" data-th-field="*{oAddress}"> </td>
+						<td>
+							<span
+							class="error"
+							data-th-if="${#fields.hasErrors('oAddress')}"
+							data-th-errors="*{oAddress}"
+							></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Phone: </td>
+						<td><input type="text" data-th-field="*{oPhone}"> </td>
+						<td>
+							<span
+							class="error"
+							data-th-if="${#fields.hasErrors('oPhone')}"
+							data-th-errors="*{oPhone}"
+							></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Rush: </td>
+						<td><input type="checkbox" name="dRush" value="true"  data-th-checked="*{oRush}"> </td>
+					</tr>
+					<tr>
+						<td>Comments: </td>
+						<td><input type="text" data-th-field="*{oComments}"> </td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<button type="submit">Cancel Order</button> <button type="submit">Place Order</button> 
+						</td>
+					</tr>
+				</table>
+			</div>
+			<input type="hidden" data-th-value="${pizzaType}" name="pizzaType">
+			<input type="hidden" data-th-value="${pizzaSize}">
+			<input type="hidden" data-th-value="${pizzaQty}">
+		</form>
+		
+	</body>
+</html>
